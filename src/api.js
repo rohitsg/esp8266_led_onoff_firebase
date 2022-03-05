@@ -4,8 +4,8 @@ let baseUrl = 'http://localhost:3002';
 
 export const getLogs = async () => {
   console.log(process.env.MODE, process.env.BACKEND_URL)
-  if (process.env.MODE === 'prod') {
-  baseUrl = process.env.BACKEND_URL
+  if (process.env.REACT_APP_MODE === 'prod') {
+  baseUrl = process.env.REACT_APP_BACKEND_URL
   }
   try {
     const resp = await fetch(`${baseUrl}/logs`, {
