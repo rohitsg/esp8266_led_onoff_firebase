@@ -20,13 +20,17 @@ function App() {
   const [isGreenLedOn, setIsGreenLedOn] = useState('off');
   const [logs, setLogs] = useState(defaultState);
 
-  useEffect(async () => {
-    const logs = await getLogs();
-    if (Object.keys(logs).length) {
-      setLogs(logs);
-      setIsRedLedOn(logs.red ? (logs.red.on ? "on" : 'off') : 'off');
-      setIsGreenLedOn(logs.green ? (logs.green.on ? "on" : 'off') : 'off');
-    } else {}
+  useEffect( () => {
+    
+      const fetchData = async () => {
+        const logs = await getLogs();
+        if (Object.keys(logs).length) {
+          setLogs(logs);
+          setIsRedLedOn(logs.red ? (logs.red.on ? "on" : 'off') : 'off');
+          setIsGreenLedOn(logs.green ? (logs.green.on ? "on" : 'off') : 'off');
+      }
+    }
+    fetchData();
   }, []);
   
   const handleIsRedOn = async (e, name, color) => {

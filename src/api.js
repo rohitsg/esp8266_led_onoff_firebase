@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3002';
+let baseUrl = 'http://localhost:3002';
 // let baseUrl = 'https://e504-2409-4042-4c01-4e0f-991c-ba8a-cd4f-d543.ngrok.io';
 
 if (process.env.MODE === 'prod') {
@@ -28,7 +28,7 @@ export const updateLedStatus = async (payload) => {
       },
       body: JSON.stringify(payload)
     });
-    const msg = await resp.json();
+    await resp.json();
   } catch (err) {
     console.error('Error while updating led status: ', err);
   }
