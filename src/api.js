@@ -1,12 +1,12 @@
 let baseUrl = 'http://localhost:3002';
 // let baseUrl = 'https://e504-2409-4042-4c01-4e0f-991c-ba8a-cd4f-d543.ngrok.io';
 
-if (process.env.MODE === 'prod') {
-baseUrl = process.env.BACKEND_URL
-}
-
 
 export const getLogs = async () => {
+  console.log(process.env.MODE, process.env.BACKEND_URL)
+  if (process.env.MODE === 'prod') {
+  baseUrl = process.env.BACKEND_URL
+  }
   try {
     const resp = await fetch(`${baseUrl}/logs`, {
       'Content-Type': 'application/json'
@@ -19,6 +19,10 @@ export const getLogs = async () => {
 }
 
 export const updateLedStatus = async (payload) => {
+
+  if (process.env.MODE === 'prod') {
+    baseUrl = process.env.BACKEND_URL
+    }
   try {
     const resp = await fetch(`${baseUrl}/ledOp`, {
       method: 'POST',
