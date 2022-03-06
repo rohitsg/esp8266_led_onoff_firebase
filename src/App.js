@@ -21,7 +21,7 @@ function App() {
   const [logs, setLogs] = useState(defaultState);
 
   useEffect( () => {
-    
+    let timer;
       const fetchData = async () => {
         const logs = await getLogs();
         if (Object.keys(logs).length) {
@@ -30,7 +30,12 @@ function App() {
           setIsGreenLedOn(logs.green ? (logs.green.on ? "on" : 'off') : 'off');
       }
     }
-    fetchData();
+    timer = setInterval(() => {
+      fetchData();
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    }
   }, []);
   
   const handleIsRedOn = async (e, name, color) => {
