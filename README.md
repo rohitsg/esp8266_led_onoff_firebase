@@ -12,4 +12,4 @@ Deployment - deployed frontned reactjs app on vercel (free), and exposed local b
 https://github.com/FirebaseExtended/firebase-arduino/tree/master/examples
 
 ### Breadboard connection
-![image](https://user-images.githubusercontent.com/42828697/156909174-817d74ac-3b17-4109-a00f-6da09999d201.png)
+![image](https://user-images.githubusercontent.com/42828697/156909174-817d74ac-3b17-4109-a00f-6da09999d201.png).
